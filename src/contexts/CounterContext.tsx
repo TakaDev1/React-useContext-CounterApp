@@ -4,6 +4,7 @@ interface CounterContextInterface {
   count: number;
   handleIncrement: () => void;
   handleDecrement: () => void;
+  handleReset: () => void;
 }
 
 const CounterContext = createContext<CounterContextInterface | undefined>(undefined);
@@ -19,9 +20,13 @@ const CounterProvider = ({ children }: { children: ReactNode }) => {
     setCount((prev) => prev - 1);
   };
 
+  const handleReset = () => {
+    setCount(0);
+  };
+
   return (
     <>
-      <CounterContext.Provider value={{ count, handleIncrement, handleDecrement }}>
+      <CounterContext.Provider value={{ count, handleIncrement, handleDecrement, handleReset }}>
         {children}
       </CounterContext.Provider>
     </>
