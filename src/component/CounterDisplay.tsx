@@ -5,8 +5,11 @@ const CounterDisplay = () => {
   const { count } = useCoutner();
 
   return (
-    <div>
-      <p>Count: {count}</p>
+    <div className="m-10">
+      <p className="text-whtie text-3xl">
+        Count:{" "}
+        {<span className={`${count >= 0 ? "text-green-500" : "text-red-500"}`}>{count}</span>}
+      </p>
     </div>
   );
 };
