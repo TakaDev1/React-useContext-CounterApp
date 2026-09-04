@@ -1,35 +1,69 @@
-# React + TypeScript + Vite
+# React-useContext-CounterApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Reactの `useContext` と Context API を使用して、コンポーネント間でカウンターの状態を共有する練習用アプリです。
 
-Currently, two official plugins are available:
+## 📌 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+`CounterContext` でカウンターの状態と操作を管理し、`CounterDisplay` と `CounterButtons` から共有された状態を利用します。
 
-## React Compiler
+## 🛠 使用技術
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* React
+* TypeScript
+* Context API
+* useContext
+* useState
+* Tailwind CSS
+* Vite
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## 📂 ディレクトリ構成
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+src/
+├── components/
+│   ├── CounterButtons.tsx
+│   └── CounterDisplay.tsx
+├── contexts/
+│   └── CounterContext.tsx
+├── App.tsx
+├── App.css
+├── index.css
+└── main.tsx
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## ⚙️ 実装内容
+
+### CounterContext
+
+Context APIを使用してカウンターの状態を管理します。
+
+* `count`：現在のカウント値
+* `increment`：カウントアップ
+* `decrement`：カウントダウン
+
+### CounterDisplay
+
+`useContext` を使用して `count` を取得し、現在のカウント値を表示します。
+
+### CounterButtons
+
+`useContext` を使用して `increment` と `decrement` を取得し、ボタンからカウンターを操作します。
+
+## 🎨 UI
+
+Tailwind CSSを使用してスタイリングしています。
+
+カウンターボタンには円形のデザインを使用しています。
+
+```tsx
+className="w-12 h-12 rounded-full"
+```
+
+## 🚀 起動方法
+
+```bash
+npm install
+npm run dev
+```
+
+ブラウザで表示されたURLにアクセスしてください。
